@@ -4,14 +4,14 @@ const router = express.Router();
 require("dotenv").config();
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // ✅ API key setup for OpenAI v4
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 router.post("/chat", async (req, res) => {
   const { message } = req.body;
   try {
     const response = await openai.chat.completions.create({
-      model: "text-davinci-003",
+      model: "gpt-4o",
       prompt: message,
       max_tokens: 150,
     });

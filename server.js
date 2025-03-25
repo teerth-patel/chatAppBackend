@@ -6,7 +6,7 @@ require("dotenv").config();
 const chatRoute = require("./routes/chat");
 
 const app = express();
-app.use(cors);
+app.use(cors());
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
@@ -19,7 +19,7 @@ mongoose
   .catch((err) => console.log("error connecting to mongo", err));
 
 app.use("/api", chatRoute);
-app.get("./", (req, res) => {
+app.get("/", (req, res) => {
   res.send("api get / works");
 });
 
